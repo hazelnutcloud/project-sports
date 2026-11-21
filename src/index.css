@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --font-display: 'Outfit', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --plaza-bg: #f3f7fb;
+  --plaza-card: #ffffff;
+  --ink-primary: #162436;
+  --ink-muted: #5b6d82;
+  --spocco-coral: #ee5656;
+  --spocco-coral-lip: #c93b3b;
+  --spocco-mint: #12b8a6;
+  --spocco-mint-lip: #0c8c7e;
+  --spocco-tennis: #58b947;
+  --spocco-tennis-lip: #3d9230;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    touch-action: manipulation;
+    font-family: var(--font-sans);
+    color: var(--ink-primary);
+    background-color: var(--plaza-bg);
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Sunlit architectural plaza backdrop matching the 3D Spocco atrium */
+.spocco-plaza-bg {
+  background-color: #f3f7fb;
+  background-image:
+    radial-gradient(ellipse 90% 60% at 15% -10%, rgba(186, 230, 253, 0.55) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 50% at 92% 6%, rgba(254, 215, 170, 0.32) 0%, transparent 60%),
+    radial-gradient(ellipse 65% 55% at 50% 105%, rgba(153, 246, 228, 0.28) 0%, transparent 65%),
+    linear-gradient(125deg, rgba(22, 36, 54, 0.025) 1px, transparent 1px),
+    linear-gradient(35deg, rgba(22, 36, 54, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+}
+
+/* Tactile console-style pressable buttons */
+.btn-tactile {
+  transition: transform 90ms ease, filter 120ms ease, box-shadow 90ms ease;
+}
+
+.btn-tactile:active:not(:disabled) {
+  transform: translateY(2px);
+}
+
+.btn-coral {
+  background-color: var(--spocco-coral);
+  color: #ffffff;
+  box-shadow: 0 3px 0 var(--spocco-coral-lip), 0 8px 18px -6px rgba(238, 86, 86, 0.45);
+}
+
+.btn-coral:hover:not(:disabled) {
+  filter: brightness(1.04);
+}
+
+.btn-coral:active:not(:disabled) {
+  box-shadow: 0 1px 0 var(--spocco-coral-lip), 0 3px 8px -3px rgba(238, 86, 86, 0.35);
+}
+
+.btn-mint {
+  background-color: var(--spocco-mint);
+  color: #ffffff;
+  box-shadow: 0 3px 0 var(--spocco-mint-lip), 0 8px 18px -6px rgba(18, 184, 166, 0.4);
+}
+
+.btn-mint:hover:not(:disabled) {
+  filter: brightness(1.04);
+}
+
+.btn-mint:active:not(:disabled) {
+  box-shadow: 0 1px 0 var(--spocco-mint-lip), 0 3px 8px -3px rgba(18, 184, 166, 0.3);
+}
+
+.btn-tennis {
+  background-color: var(--spocco-tennis);
+  color: #ffffff;
+  box-shadow: 0 3px 0 var(--spocco-tennis-lip), 0 8px 18px -6px rgba(88, 185, 71, 0.45);
+}
+
+.btn-tennis:hover:not(:disabled) {
+  filter: brightness(1.04);
+}
+
+.btn-tennis:active:not(:disabled) {
+  box-shadow: 0 1px 0 var(--spocco-tennis-lip), 0 3px 8px -3px rgba(88, 185, 71, 0.32);
+}
+
+.btn-surface {
+  background-color: #ffffff;
+  color: #162436;
+  border: 1.5px solid #d5e0ec;
+  box-shadow: 0 2px 0 #cbd7e6;
+}
+
+.btn-surface:hover:not(:disabled) {
+  background-color: #f8fbfe;
+  border-color: #bfd0e2;
+}
+
+.btn-surface:active:not(:disabled) {
+  box-shadow: 0 0 0 #cbd7e6;
+}
+
+@keyframes popBanner {
+  0% {
+    opacity: 0;
+    transform: scale(0.62) translateY(20px);
+  }
+  18% {
+    opacity: 1;
+    transform: scale(1.06) translateY(-3px);
+  }
+  30% {
+    transform: scale(1) translateY(0);
+  }
+  82% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.08) translateY(-12px);
+  }
+}
+
+.animate-callout {
+  animation: popBanner 2.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.callout-text-outline {
+  -webkit-text-stroke: 2.5px #ffffff;
+  paint-order: stroke fill;
+  filter: drop-shadow(0 6px 14px rgba(22, 36, 54, 0.28));
+}
+
+@keyframes modalIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-in {
+  animation: modalIn 180ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}

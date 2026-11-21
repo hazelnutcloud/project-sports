@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.cert/
+debug-traces/
+*.local
+.DS_Store
+blender
